@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10152b" />
+    <title>Neon Tetris</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">ARCADE / 01</p>
+          <h1>NEON TETRIS</h1>
+        </div>
+        <div class="header-status" aria-label="게임 상태">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="headerStatus">READY</span>
+        </div>
+      </header>
+
+      <section class="game-layout" aria-label="테트리스 게임">
+        <div class="board-column">
+          <div class="board-frame">
+            <div class="board-topline">
+              <span>PLAYFIELD</span>
+              <span id="levelBadge">LV 01</span>
+            </div>
+            <div class="board-wrap">
+              <canvas id="gameCanvas" width="300" height="600" aria-label="테트리스 게임판"></canvas>
+              <div class="board-overlay" id="boardOverlay">
+                <div class="overlay-card">
+                  <span class="overlay-kicker" id="overlayKicker">READY?</span>
+                  <h2 id="overlayTitle">게임 시작</h2>
+                  <p id="overlayText">아래 버튼을 눌러 첫 블록을 내려보세요.</p>
+                  <button class="primary-button" id="overlayButton" type="button">게임 시작</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mobile-hint">키보드 또는 아래 버튼으로 블록을 조작하세요.</p>
+          <div class="mobile-controls" aria-label="모바일 조작 버튼">
+            <button type="button" data-action="left" aria-label="왼쪽 이동">←</button>
+            <button type="button" data-action="down" aria-label="빠르게 내리기">↓</button>
+            <button type="button" data-action="rotate" aria-label="회전">↻</button>
+            <button type="button" data-action="right" aria-label="오른쪽 이동">→</button>
+            <button type="button" data-action="drop" aria-label="즉시 떨어뜨리기">DROP</button>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="stats-grid">
+            <div class="stat-card stat-card-wide">
+              <span class="stat-label">SCORE</span>
+              <strong id="scoreValue">000000</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">LEVEL</span>
+              <strong id="levelValue">01</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">LINES</span>
+              <strong id="linesValue">00</strong>
+            </div>
+          </div>
+
+          <section class="panel next-panel">
+            <div class="panel-heading">
+              <span class="section-number">01</span>
+              <h2>NEXT BLOCK</h2>
+            </div>
+            <div class="next-preview">
+              <canvas id="nextCanvas" width="140" height="140" aria-label="다음 블록 미리보기"></canvas>
+            </div>
+          </section>
+
+          <section class="panel controls-panel">
+            <div class="panel-heading">
+              <span class="section-number">02</span>
+              <h2>CONTROLS</h2>
+            </div>
+            <ul class="controls-list">
+              <li><span class="key-pair"><kbd>←</kbd><kbd>→</kbd></span><span>이동</span></li>
+              <li><span class="key-pair"><kbd>↑</kbd></span><span>회전</span></li>
+              <li><span class="key-pair"><kbd>↓</kbd></span><span>빠르게 내리기</span></li>
+              <li><span class="key-pair"><kbd>SPACE</kbd></span><span>즉시 떨어뜨리기</span></li>
+              <li><span class="key-pair"><kbd>P</kbd></span><span>일시정지</span></li>
+            </ul>
+          </section>
+
+          <div class="action-row">
+            <button class="secondary-button" id="pauseButton" type="button">일시정지 <span>P</span></button>
+            <button class="secondary-button" id="restartButton" type="button">다시 시작 <span>R</span></button>
+          </div>
+          <p class="tip"><span>TIP</span> 한 번에 네 줄을 지우면 TETRIS!</p>
+        </aside>
+      </section>
+
+      <footer class="app-footer">
+        <span>BUILD YOUR BEST STACK</span>
+        <span>10 × 20 GRID</span>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
